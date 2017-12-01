@@ -1,0 +1,25 @@
+html
+  body
+    form(action="/charge", method="post")
+      article
+        label Amount: $5.00
+      script(
+        src="//checkout.stripe.com/v2/checkout.js",
+        class="stripe-button",
+        data-key=keyPublishable,
+        data-locale="auto",
+        data-description="Sample Charge",
+        data-label="Pay with Card or Bitcoin"
+        data-bitcoin="true"
+        data-amount="500")
+
+    script(
+      src="https://gateway.gear.mycelium.com/gear-widget-host.js")
+    iframe(
+      id="gear-widget"
+      scrolling="no"
+      src="https://gateway.gear.mycelium.com/widgets/5f4d26cf6746ac0c1bfbb94e0e1083a57de230d2ef9f3e2a149ba06c89d9a7f5"
+      style="border: none; display: inline-block; height: 130px; min-width: 250px; max-width: 350px;")
+
+    form(action="/mycelium/charge", method="post")
+      button(type="submit") Pay $100 with Mycelium
