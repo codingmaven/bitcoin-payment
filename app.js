@@ -31,11 +31,13 @@ app.post("/charge", (req, res) => {
 });
 
 app.use("/mycelium/callback", (req, res) => {
+  // This is Mycelium webhook, we can parse req.body and process on our side
   console.log(req.query, req.body);
   res.send("ok");
 });
 
 app.use("/mycelium/order-complete", (req, res) => {
+  // On this url, we can render the payment completion page
   console.log(req.query, req.body);
   res.render("charge.pug");
 });
